@@ -1,0 +1,9 @@
+export const ADD_LIST = 'ADD_LIST';
+export const REMOVE_LIST = 'REMOVE_LIST';
+export const SHOW_LISTS = 'SHOW_LISTS';
+export const EDIT_LIST = 'EDIT_LIST';
+export const ADD_CARD = 'ADD_CARD';
+export const DRAG_HAPPANED = 'DRAG_HAPPANED';
+export const DELETE_CARD = 'DELETE_CARD';
+export const EDIT_CARD = 'EDIT_CARD';
+export const SET_AUTH = "SET_AUTH"

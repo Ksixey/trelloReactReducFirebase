@@ -1,0 +1,236 @@
+@mixin cardStyle {
+  box-shadow: 0px 1px 4px rgba(9, 45, 66, 0.25);
+  border-radius: 3px;
+  background-color: #FFFFFF;
+}
+
+@mixin paddingCard{
+  color: #000000;
+  padding: 8px 12px;
+}
+
+@mixin buttonIcon {
+  font-size: 14px;
+  margin-right:8px;
+}
+
+@mixin buttonInnerText {
+  display: inline-block;
+}
+
+@mixin columnProperty {
+  min-width: 272px;
+  padding: 10px 15px;
+}
+
+@mixin textarea {
+  @include cardStyle;
+  @include paddingCard;
+  width: 100%;
+  border: none;
+  resize: none;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+@mixin button {
+      cursor: pointer;
+      background-color: #39C071;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      font-weight: bold;
+      padding: 8px;
+}
+
+@mixin form {
+  .textarea{
+    @include textarea;
+  }
+  .formBottom{
+    display: flex;
+    justify-content: space-between;
+    .buttonForm{
+      @include button;
+    }
+    .closeButton{
+      cursor: pointer;
+      color: #6B808C;
+      align-self: center;
+    }
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://source.unsplash.com/1600x900/?background');
+  background-size: cover;
+  background-position: center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container{
+  height: 100vh;
+  .row{
+    margin-top: 20px;
+    margin-left: 15px;
+    display: flex;
+    align-items: flex-start;
+    .columns{
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+}
+
+.card{
+  @include cardStyle;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  &-text{
+      @include paddingCard;
+      margin: 0;
+  }
+  &-icon{
+    display: none;
+  }
+  &:hover{
+    .card-icon{
+      display: block;
+      padding: 8px 12px;
+      cursor: pointer;
+      color: #6B808C;
+    }
+  }
+}
+
+.headerForm{
+  @include form;
+  margin-bottom: 15px;
+}
+
+.formList{
+  @include form;
+}
+
+.formColumn{
+  @include columnProperty;
+  @include form;
+  background:  #DFE3E6;
+  margin-left: 15px;
+}
+
+
+.buttonAddCard{
+  color: #6B808C;
+  background:  #DFE3E6;
+  cursor: pointer;
+  &-icon{
+     @include buttonIcon;
+  }
+  &-innerText{
+      @include buttonInnerText;
+  }
+}
+
+.buttonAddColumn{
+  @include columnProperty;
+  color: #6B808C;
+  margin-right: 15px;
+  background:  #DFE3E6;
+  cursor: pointer;
+  border-radius: 3px;
+  &-icon{
+    @include buttonIcon;
+  }
+  &-innerText{
+    @include buttonInnerText;
+  }
+}
+
+.column {
+  background:  #DFE3E6;
+  border-radius: 3px;
+  @include columnProperty;
+  position: relative;
+  margin-right: 15px;
+  
+  &-header{
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 12px;
+  }
+}
+
+.headerForm{
+  .closeButton{
+    position: absolute;
+    right: 15px;
+  }
+}
+
+.errorContainer{
+  background-color: red;
+  width: 100%;
+  border-radius: 3px;
+  color: white;
+  font-size: 18px;
+  padding: 8px 15px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.preloaderContainer{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.header{
+  padding: 15px;
+  background-color: rgba(236, 236, 236, 0.2);
+  &Button{
+    @include button;
+  }
+}
+
+.authFormContainer{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  .formWrapper{
+    width: 350px;
+    padding: 20px;
+    margin-top: 100px;
+    background-color: rgba(236, 236, 236, 0.2);
+  }
+  .title{
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+  }
+  .inputField{
+    @include cardStyle;
+  @include paddingCard;
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  }
+  .buttonAuth{
+    @include button;
+  }
+}
