@@ -2,10 +2,12 @@ import React, {useContext} from 'react';
 import { Formik } from 'formik';
 import {useHistory, Redirect} from 'react-router-dom';
 import app from '../../base';
-import {AuthContext} from './Auth'
+import {AuthContext} from './Auth';
+import PropTypes from 'prop-types';
 
 const AuthForm = ({login}) => {
-
+    console.log(login);
+    
     const history = useHistory();
     const {currentUser} = useContext(AuthContext);
     const redirectSignUp = () => {
@@ -93,5 +95,13 @@ const AuthForm = ({login}) => {
         </div>
     )
 }
+
+AuthForm.propTypes = {
+    login: PropTypes.bool
+};
+
+AuthForm.defaultProps = {
+	login: false,
+};
 
 export default AuthForm;
